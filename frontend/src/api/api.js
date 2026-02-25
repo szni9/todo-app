@@ -52,16 +52,13 @@ export async function register(name, email, password) {
 }
 
 export async function login(email, password) {
-  const data = await apiFetch("/auth/login", {
+  return apiFetch("/auth/login", {
     method: "POST",
     body: JSON.stringify({
       email,
       password
     })
   })
-
-  localStorage.setItem("token", data.token)
-  return data
 }
 
 export function logout() {
